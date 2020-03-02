@@ -14,6 +14,17 @@ namespace DapperDino.Mirror.Tutorials.Ownership
 
             if (!Input.GetKeyDown(KeyCode.Space)) { return; }
 
+            //transform.Translate(movement);
+
+            CmdMove();
+        }
+
+        [Command]
+        private void CmdMove() => RpcMove();
+
+        [ClientRpc]
+        private void RpcMove()
+        {
             transform.Translate(movement);
         }
     }
