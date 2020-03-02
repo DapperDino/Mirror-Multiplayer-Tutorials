@@ -20,12 +20,14 @@ namespace DapperDino.Mirror.Tutorials.Ownership
         }
 
         [Command]
-        private void CmdMove() => RpcMove();
+        private void CmdMove()
+        {
+            // Validate logic here
+
+            RpcMove();
+        }
 
         [ClientRpc]
-        private void RpcMove()
-        {
-            transform.Translate(movement);
-        }
+        private void RpcMove() => transform.Translate(movement);
     }
 }
