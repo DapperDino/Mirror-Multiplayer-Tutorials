@@ -376,13 +376,13 @@ MonoBehaviour:
   networkAddress: localhost
   maxConnections: 4
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 8717925311720464107, guid: d4df86476b370f14a99ba264e56ccd64,
+  playerPrefab: {fileID: 5985174639948530860, guid: 8dee642fc79732d4dbc342d5ea20fa92,
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs: []
   menuScene: Scene_Lobby
-  roomPlayerPrefab: {fileID: 7831582510798183725, guid: d4df86476b370f14a99ba264e56ccd64,
+  roomPlayerPrefab: {fileID: 5494571419773178487, guid: 255bd50c0b57afc4489a3dad8dd9d0a7,
     type: 3}
 --- !u!4 &1495594496
 Transform:
