@@ -17,9 +17,11 @@ namespace DapperDino.Mirror.Tutorials.Lobby
 
         [Header("Game")]
         [SerializeField] private NetworkGamePlayerLobby gamePlayerPrefab = null;
+        [SerializeField] private GameObject playerSpawnSystem = null;
 
         public static event Action OnClientConnected;
         public static event Action OnClientDisconnected;
+        public static event Action<NetworkConnection> OnServerReadied;
 
         public List<NetworkRoomPlayerLobby> RoomPlayers { get; } = new List<NetworkRoomPlayerLobby>();
         public List<NetworkGamePlayerLobby> GamePlayers { get; } = new List<NetworkGamePlayerLobby>();
@@ -146,6 +148,22 @@ namespace DapperDino.Mirror.Tutorials.Lobby
             }
 
             base.ServerChangeScene(newSceneName);
+        }
+
+        public override void OnServerSceneChanged(string sceneName)
+        {
+            if (sceneName.StartsWith("Scene_Map"))
+            {
+                GameObject playerSpawnSystemInstance = Instantiate(playerSpawnSystem);
+                NetworkServer.Spawn(playerSpawnSystemInstance);
+            }
+        }
+
+        public override void OnServerReady(NetworkConnection conn)
+        {
+            base.OnServerReady(conn);
+
+            OnServerReadied?.Invoke(conn);
         }
     }
 }
