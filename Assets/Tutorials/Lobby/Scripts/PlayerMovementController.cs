@@ -7,7 +7,6 @@ namespace DapperDino.Tutorials.Lobby
     public class PlayerMovementController : NetworkBehaviour
     {
         [SerializeField] private float movementSpeed = 5f;
-        [SerializeField] private Transform directionTransform = null;
         [SerializeField] private CharacterController controller = null;
 
         private Vector2 previousInput;
@@ -46,12 +45,12 @@ namespace DapperDino.Tutorials.Lobby
         [Client]
         private void Move()
         {
-            Vector3 right = directionTransform.right;
-            Vector3 forward = directionTransform.forward;
+            Vector3 right = controller.transform.right;
+            Vector3 forward = controller.transform.forward;
             right.y = 0f;
             forward.y = 0f;
 
-            Vector3 movement = right * previousInput.x + forward * previousInput.y;
+            Vector3 movement = right.normalized * previousInput.x + forward.normalized * previousInput.y;
 
             controller.Move(movement * movementSpeed * Time.deltaTime);
         }

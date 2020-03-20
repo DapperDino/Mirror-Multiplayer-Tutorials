@@ -299,7 +299,6 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   movementSpeed: 5
-  directionTransform: {fileID: 7216927618166858867}
   controller: {fileID: 7216927618166858866}
 --- !u!1 &7216927619588844528
 GameObject:
