@@ -408,6 +408,8 @@ MonoBehaviour:
     type: 3}
   playerSpawnSystem: {fileID: 5517070588673000172, guid: 3af41e3198c113249b67ef6faefde976,
     type: 3}
+  roundSystem: {fileID: 7318296775627505269, guid: 51037daa93f019e45acae823c84c9485,
+    type: 3}
 --- !u!4 &1495594496
 Transform:
   m_ObjectHideFlags: 0
