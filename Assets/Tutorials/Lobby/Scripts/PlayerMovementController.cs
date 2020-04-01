@@ -1,5 +1,4 @@
-﻿using DapperDino.Tutorials.Lobby.Inputs;
-using Mirror;
+﻿using Mirror;
 using UnityEngine;
 
 namespace DapperDino.Tutorials.Lobby
@@ -11,28 +10,14 @@ namespace DapperDino.Tutorials.Lobby
 
         private Vector2 previousInput;
 
-        private Controls controls;
-        private Controls Controls
-        {
-            get
-            {
-                if (controls != null) { return controls; }
-                return controls = new Controls();
-            }
-        }
-
         public override void OnStartAuthority()
         {
             enabled = true;
 
-            Controls.Player.Move.performed += ctx => SetMovement(ctx.ReadValue<Vector2>());
-            Controls.Player.Move.canceled += ctx => ResetMovement();
+            InputManager.Controls.Player.Move.performed += ctx => SetMovement(ctx.ReadValue<Vector2>());
+            InputManager.Controls.Player.Move.canceled += ctx => ResetMovement();
         }
 
-        [ClientCallback]
-        private void OnEnable() => Controls.Enable();
-        [ClientCallback]
-        private void OnDisable() => Controls.Disable();
         [ClientCallback]
         private void Update() => Move();
 

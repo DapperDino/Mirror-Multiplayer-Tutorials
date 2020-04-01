@@ -1,6 +1,5 @@
 ﻿using DapperDino.Mirror.Tutorials.Lobby;
 using Mirror;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -50,7 +49,7 @@ namespace DapperDino.Tutorials.Lobby
         }
 
         [Server]
-        private void CheckToStartRound(NetworkConnection _)
+        private void CheckToStartRound(NetworkConnection conn)
         {
             if (Room.GamePlayers.Count(x => x.connectionToClient.isReady) != Room.GamePlayers.Count) { return; }
 
@@ -72,7 +71,7 @@ namespace DapperDino.Tutorials.Lobby
         [ClientRpc]
         private void RpcStartRound()
         {
-            Debug.Log("Start");
+            InputManager.Remove(ActionMapNames.Player);
         }
 
         #endregion

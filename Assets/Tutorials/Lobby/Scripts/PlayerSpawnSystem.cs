@@ -1,4 +1,5 @@
-﻿using Mirror;
+﻿using DapperDino.Tutorials.Lobby;
+using Mirror;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -22,6 +23,12 @@ namespace DapperDino.Mirror.Tutorials.Lobby
         public static void RemoveSpawnPoint(Transform transform) => spawnPoints.Remove(transform);
 
         public override void OnStartServer() => NetworkManagerLobby.OnServerReadied += SpawnPlayer;
+
+        public override void OnStartClient()
+        {
+            InputManager.Add(ActionMapNames.Player);
+            InputManager.Controls.Player.Look.Enable();
+        }
 
         [ServerCallback]
         private void OnDestroy() => NetworkManagerLobby.OnServerReadied -= SpawnPlayer;
