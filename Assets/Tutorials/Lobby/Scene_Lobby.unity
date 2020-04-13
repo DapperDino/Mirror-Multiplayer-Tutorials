@@ -402,6 +402,8 @@ MonoBehaviour:
   spawnPrefabs: []
   minPlayers: 2
   menuScene: Scene_Lobby
+  numberOfRounds: 1
+  mapSet: {fileID: 11400000, guid: 4d796735ff1ac734d816cc7aeab5f928, type: 2}
   roomPlayerPrefab: {fileID: 5494571419773178487, guid: 255bd50c0b57afc4489a3dad8dd9d0a7,
     type: 3}
   gamePlayerPrefab: {fileID: 2155515660328231840, guid: 39a680b438da1d040b4fd448bbe900c6,

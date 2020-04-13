@@ -1,4 +1,5 @@
-﻿using Mirror;
+﻿using DapperDino.Tutorials.Lobby;
+using Mirror;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,10 @@ namespace DapperDino.Mirror.Tutorials.Lobby
         [SerializeField] private int minPlayers = 2;
         [Scene] [SerializeField] private string menuScene = string.Empty;
 
+        [Header("Maps")]
+        [SerializeField] private int numberOfRounds = 1;
+        [SerializeField] private MapSet mapSet = null;
+
         [Header("Room")]
         [SerializeField] private NetworkRoomPlayerLobby roomPlayerPrefab = null;
 
@@ -19,6 +24,8 @@ namespace DapperDino.Mirror.Tutorials.Lobby
         [SerializeField] private NetworkGamePlayerLobby gamePlayerPrefab = null;
         [SerializeField] private GameObject playerSpawnSystem = null;
         [SerializeField] private GameObject roundSystem = null;
+
+        private MapHandler mapHandler;
 
         public static event Action OnClientConnected;
         public static event Action OnClientDisconnected;
@@ -131,7 +138,9 @@ namespace DapperDino.Mirror.Tutorials.Lobby
             {
                 if (!IsReadyToStart()) { return; }
 
-                ServerChangeScene("Scene_Map_01");
+                mapHandler = new MapHandler(mapSet, numberOfRounds);
+
+                ServerChangeScene(mapHandler.NextMap);
             }
         }
 
