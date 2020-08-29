@@ -19,6 +19,7 @@ namespace DapperDino.Mirror.Tutorials.Events
 
         #region Server
 
+        [Server]
         private void SetHealth(int value)
         {
             currentHealth = value;
