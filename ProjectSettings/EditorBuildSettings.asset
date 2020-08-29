@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Tutorials/NetworkMessages/Scene_NetworkMessages.unity
-    guid: 226c7b59fb6b6f448893aa7d84665393
+    path: Assets/Tutorials/Steamworks/Scene_Steamworks.unity
+    guid: 114f4ef758b28694ca70ef566d3564f3
   - enabled: 1
-    path: Assets/Tutorials/NetworkMessages/Scene_NetworkMessagesLobby.unity
-    guid: 16a9788f48af9fc4d964319b81635da4
+    path: Assets/Tutorials/Steamworks/Scene_SteamworksLobby.unity
+    guid: 4b22f4aac1e23b84697926c69b53bd79
   m_configObjects: {}
