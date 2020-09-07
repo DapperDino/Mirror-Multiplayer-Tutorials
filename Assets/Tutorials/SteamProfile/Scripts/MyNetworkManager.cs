@@ -9,7 +9,9 @@ namespace DapperDino.Mirror.Tutorials.SteamProfile
         {
             base.OnServerAddPlayer(conn);
 
-            CSteamID steamId = SteamMatchmaking.GetLobbyMemberByIndex(SteamLobby.LobbyId, numPlayers - 1);
+            CSteamID steamId = SteamMatchmaking.GetLobbyMemberByIndex(
+                SteamLobby.LobbyId,
+                numPlayers - 1);
 
             var playerInfoDisplay = conn.identity.GetComponent<PlayerInfoDisplay>();
 

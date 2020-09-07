@@ -1,5 +1,6 @@
 ﻿using Mirror;
 using Steamworks;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,13 +37,13 @@ namespace DapperDino.Mirror.Tutorials.SteamProfile
         {
             var cSteamId = new CSteamID(newSteamId);
 
-            int ret = SteamFriends.GetLargeFriendAvatar(cSteamId);
-
             displayNameText.text = SteamFriends.GetFriendPersonaName(cSteamId);
 
-            if (ret == -1) { return; }
+            int imageId = SteamFriends.GetLargeFriendAvatar(cSteamId);
 
-            profileImage.texture = GetSteamImageAsTexture(ret);
+            if (imageId == -1) { return; }
+
+            profileImage.texture = GetSteamImageAsTexture(imageId);
         }
 
         private void OnAvatarImageLoaded(AvatarImageLoaded_t callback)
