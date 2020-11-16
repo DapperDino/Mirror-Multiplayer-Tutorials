@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DapperDino.Mirror.Tutorials.Steamworks
 {
-    public class Notification : MessageBase
+    public class Notification : NetworkMessage
     {
         public string content;
     }

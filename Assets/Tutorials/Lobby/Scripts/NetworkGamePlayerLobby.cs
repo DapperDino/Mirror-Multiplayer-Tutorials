@@ -24,7 +24,7 @@ namespace DapperDino.Mirror.Tutorials.Lobby
             Room.GamePlayers.Add(this);
         }
 
-        public override void OnNetworkDestroy()
+        public override void OnStopClient()
         {
             Room.GamePlayers.Remove(this);
         }
