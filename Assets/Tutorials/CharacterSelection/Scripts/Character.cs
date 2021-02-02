@@ -11,6 +11,6 @@ namespace DapperDino.Mirror.Tutorials.CharacterSelection
 
         public string CharacterName => characterName;
         public GameObject CharacterPreviewPrefab => characterPreviewPrefab;
-        public GameObject GamePlayCharacterPrefab => gameplayCharacterPrefab;
+        public GameObject GameplayCharacterPrefab => gameplayCharacterPrefab;
     }
 }

@@ -18,14 +18,17 @@ namespace DapperDino.Mirror.Tutorials.CharacterSelection
 
         public override void OnStartClient()
         {
-            foreach (var character in characters)
+            if (characterPreviewParent.childCount == 0)
             {
-                GameObject characterInstance =
-                    Instantiate(character.CharacterPreviewPrefab, characterPreviewParent);
+                foreach (var character in characters)
+                {
+                    GameObject characterInstance =
+                        Instantiate(character.CharacterPreviewPrefab, characterPreviewParent);
 
-                characterInstance.SetActive(false);
+                    characterInstance.SetActive(false);
 
-                characterInstances.Add(characterInstance);
+                    characterInstances.Add(characterInstance);
+                }
             }
 
             characterInstances[currentCharacterIndex].SetActive(true);
@@ -36,7 +39,10 @@ namespace DapperDino.Mirror.Tutorials.CharacterSelection
 
         private void Update()
         {
-            characterPreviewParent.RotateAround(characterPreviewParent.position, characterPreviewParent.up, turnSpeed * Time.deltaTime);
+            characterPreviewParent.RotateAround(
+                characterPreviewParent.position,
+                characterPreviewParent.up,
+                turnSpeed * Time.deltaTime);
         }
 
         public void Select()
@@ -46,10 +52,10 @@ namespace DapperDino.Mirror.Tutorials.CharacterSelection
         }
 
         [Command(ignoreAuthority = true)]
-        private void CmdSelect(int characterIndex, NetworkConnectionToClient sender = null)
+        public void CmdSelect(int characterIndex, NetworkConnectionToClient sender = null)
         {
-            GameObject playerInstance = Instantiate(characters[characterIndex].GamePlayCharacterPrefab);
-            NetworkServer.Spawn(playerInstance, sender);         
+            GameObject characterInstance = Instantiate(characters[characterIndex].GameplayCharacterPrefab);
+            NetworkServer.Spawn(characterInstance, sender);
         }
 
         public void Right()
@@ -67,7 +73,7 @@ namespace DapperDino.Mirror.Tutorials.CharacterSelection
             characterInstances[currentCharacterIndex].SetActive(false);
 
             currentCharacterIndex--;
-            if(currentCharacterIndex < 0)
+            if (currentCharacterIndex < 0)
             {
                 currentCharacterIndex += characterInstances.Count;
             }
