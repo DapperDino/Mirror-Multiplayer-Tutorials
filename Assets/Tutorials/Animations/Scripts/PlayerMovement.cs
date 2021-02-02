@@ -27,11 +27,11 @@ namespace DapperDino.Mirror.Tutorials.Animations
 
             controller.Move(movement * movementSpeed * Time.deltaTime);
 
-            if(controller.velocity.magnitude > 0.2f)
+            if (controller.velocity.magnitude > 0.2f)
             {
                 transform.rotation = Quaternion.LookRotation(movement);
             }
-            
+
             animator.SetBool("IsWalking", controller.velocity.magnitude > 0.2f);
         }
     }

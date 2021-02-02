@@ -967,7 +967,7 @@ MonoBehaviour:
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 488265321954428389, guid: 23c89bc5425017e4f8391a8e3da2844f,
+  playerPrefab: {fileID: 2259578255433497246, guid: 520e345d875c0334580788771a611542,
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
@@ -1093,7 +1093,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-14936
+  m_Name: pb_Mesh48278
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
